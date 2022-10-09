@@ -1,7 +1,8 @@
 const mongoose = require("mongoose");
 
 const dbName = "db_windri_betest";
-const serverUri = process.env.DATABASE_URL || "127.0.0.1:27017";
+//const serverUri = process.env.DATABASE_URL || "mongodb://127.0.0.1:27017";
+const serverUri = 'mongodb+srv://windrialfika:qJGQtBLJ47pqBMdx@cluster0.d3n8prz.mongodb.net';
 
 
 class dbConnection {
@@ -10,7 +11,7 @@ class dbConnection {
     }
     _connect() {
         mongoose
-            .connect(`mongodb://${serverUri}/${dbName}`, { useNewUrlParser: true })
+            .connect(`${serverUri}/${dbName}`, { useNewUrlParser: true })
             .then(() => {
                 console.log("Database connection successful");
             })
